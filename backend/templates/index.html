@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuisine Atlas — Home</title>
+  <!-- Pull in your SPA’s stylesheet on port 3000 -->
+  <link rel="stylesheet" href="http://localhost:3000/assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <!-- GLOBAL HEADER -->
+    <header>
+      <h1>Cuisine Atlas Dish Recommender</h1>
+      <a href="http://localhost:3000/pages/dashboard.html" class="menu-btn">☰</a>
+    </header>
+
+    <main class="recommendations">
+      <!-- GENERATE MORE RANDOM DISHES -->
+      <div class="btn-row" style="margin-bottom: var(--spacing);">
+        <a href="{{ url_for('get_random_dishes_route') }}" class="btn next">
+          Generate More Random Dishes
+        </a>
+      </div>
+
+      <!-- CURRENTLY DISPLAYED DISHES -->
+      <h2>Currently Displayed Dishes</h2>
+      <ul class="card-list">
+        {% for dish in current_dishes %}
+          {% set anchor_id = "dish_" + dish.replace(' ', '_') %}
+          <li id="{{ anchor_id }}" class="rec-card">
+            <span class="card-info" style="align-self:center;">{{ dish }}</span>
+            <form action="{{ url_for('toggle_like') }}" method="POST" style="margin-left:auto;">
+              <input type="hidden" name="dish_name" value="{{ dish }}"/>
+              <input type="hidden" name="anchor"    value="{{ anchor_id }}"/>
+              {% if dish in liked_dishes %}
+                <button type="submit" class="btn dislike">Unlike</button>
+              {% else %}
+                <button type="submit" class="btn like">Like</button>
+              {% endif %}
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- LIKED DISHES -->
+      <h2>Liked Dishes ({{ liked_dishes|length }})</h2>
+      <ul class="card-list">
+        {% for ldish in liked_dishes %}
+          {% set anchor_id = "liked_" + ldish.replace(' ', '_') %}
+          <li id="{{ anchor_id }}" class="rec-card">
+            <span class="card-info" style="align-self:center;">{{ ldish }}</span>
+            <form action="{{ url_for('toggle_like') }}" method="POST" style="margin-left:auto;">
+              <input type="hidden" name="dish_name" value="{{ ldish }}"/>
+              <input type="hidden" name="anchor"    value="{{ anchor_id }}"/>
+              <button type="submit" class="btn dislike">Remove</button>
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- GENERATE RECOMMENDATIONS -->
+      {% if can_recommend %}
+        <div class="btn-row" style="margin-top: var(--spacing);">
+          <a href="{{ url_for('generate_recommendations') }}" class="btn next">
+            Generate Recommendations
+          </a>
+        </div>
+      {% else %}
+        <p class="status" style="margin-top: var(--spacing);">
+          Like at least 15 dishes to unlock recommendations!
+        </p>
+      {% endif %}
+
+      <!-- RESET ALL -->
+      <div class="btn-row" style="margin-top: var(--spacing);">
+        <form action="{{ url_for('reset') }}" method="POST">
+          <button type="submit" class="btn dislike">
+            Reset All
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Cuisine Atlas — Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container dashboard">
+    <!-- Header with dynamic greeting -->
+    <header>
+      <img src="../assets/images/user.png" class="avatar" alt="You"/>
+      <h1 id="welcome">Welcome back, Jasmine!</h1>
+      <a href="/pages/index.html" class="menu-btn">☰</a>
+    </header>
+
+    <!-- Main navigation grid -->
+    <section class="nav-grid">
+      <a href="/pages/taste-setup.html" class="nav-card">
+        <img src="../assets/images/salt.png" alt="Taste Setup" class="nav-icon"/>
+        <span>Taste Setup</span>
+      </a>
+      <a href="/pages/recommendations.html" class="nav-card">
+        <img src="../assets/images/social-media.png" alt="Recommendations" class="nav-icon"/>
+        <span>Recommendations</span>
+      </a>
+      <a href="/pages/map-view.html" class="nav-card">
+        <img src="../assets/images/map.png" alt="Map & Directions" class="nav-icon"/>
+        <span>Map &amp; Directions</span>
+      </a>
+      <a href="/pages/group-sync.html" class="nav-card">
+        <img src="../assets/images/diversity.png" alt="Group Sync" class="nav-icon"/>
+        <span>Group Sync</span>
+      </a>
+    </section>
+
+    <!-- Backend recommendation section -->
+    <section class="backend-recs" style="margin-top:2rem;">
+      <h2>Backend Dish Recommendations</h2>
+      <p>Click below to run our Flask‑powered recommendation engine.</p>
+      <a href="http://127.0.0.1:5000/" class="btn next">
+        Get Backend Recommendations
+      </a>
+    </section>
+  </div>
+
+  <!-- Shared front‑end logic -->
+  <script src="../assets/js/script.js"></script>
+
+  <!-- Swap in stored user name from localStorage -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const first = localStorage.getItem('firstName');
+      const last  = localStorage.getItem('lastName');
+      if (first || last) {
+        const fullName = [first, last].filter(Boolean).join(' ');
+        document.getElementById('welcome').textContent = `Welcome back, ${fullName}!`;
+      }
+    });
+  </script>
+
+</body>
+</html>

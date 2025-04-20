@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Cuisine Atlas — Recommendations</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/pages/dashboard.html" class="back-btn">← Back</a>
+      <h1>Top Dish Recommendations</h1>
+    </header>
+
+    <main class="recommendations">
+      <div class="card-list">
+        <!-- Card: Chicken Tikka Masala -->
+        <div class="rec-card" data-id="chicken-tikka-masala">
+          <img src="../assets/images/chicken_tikka_masala.jpg" class="card-img" alt="Tikka Masala"/>
+          <div class="card-info">
+            <h3>Chicken Tikka Masala</h3>
+            <div class="stars">★★★★☆</div>
+            <div class="status">Open · Closes 10:00 pm</div>
+            <div class="eta">15 min by car</div>
+          </div>
+          <button class="card-arrow" onclick="goToMap(this)">→</button>
+        </div>
+
+        <!-- Card: Spicy Rigatoni -->
+        <div class="rec-card" data-id="spicy-rigatoni">
+          <img src="../assets/images/spicy-chicken-rigatoni.png" class="card-img" alt="Rigatoni"/>
+          <div class="card-info">
+            <h3>Spicy Sausage Rigatoni</h3>
+            <div class="stars">★★★☆☆</div>
+            <div class="status">Open · Closes 9:30 pm</div>
+            <div class="eta">10 min by car</div>
+          </div>
+          <button class="card-arrow" onclick="goToMap(this)">→</button>
+        </div>
+
+        <!-- Card: Spicy Tuna Roll -->
+        <div class="rec-card" data-id="spicy-tuna-roll">
+          <img src="../assets/images/spicytunaroll.jpg" class="card-img" alt="Tuna Roll"/>
+          <div class="card-info">
+            <h3>Spicy Tuna Roll</h3>
+            <div class="stars">★★★☆☆</div>
+            <div class="status">Open · Closes 11:00 pm</div>
+            <div class="eta">20 min by car</div>
+          </div>
+          <button class="card-arrow" onclick="goToMap(this)">→</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

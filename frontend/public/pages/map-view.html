@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Cuisine Atlas — Get Directions</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="mobile-header">
+      <a href="/pages/recommendations.html" class="back-btn">← Back</a>
+      <h1>Get Directions</h1>
+    </header>
+
+    <div class="map-panel">
+      <div id="map-container"></div>
+      <div class="map-info-card">
+        <img id="rest-img" src="" alt=""/>
+        <div class="info">
+          <h3 id="rest-title">Loading…</h3>
+          <div class="stars"  id="rest-stars"></div>
+          <div class="status" id="rest-status"></div>
+          <div class="eta"    id="rest-eta"></div>
+        </div>
+      </div>
+    </div>
+
+    <button id="menu-btn" class="btn menu">View Menu</button>
+  </div>
+
+  <!-- load our logic first (defer so callback can see initMap) -->
+  <script src="../assets/js/script.js" defer></script>
+  <!-- then the Maps API -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkWxSrfEGN4FstPXz_ZjJ4lPAtxq-1NX0&callback=initMap"
+    async defer>
+  </script>
+</body>
+</html>

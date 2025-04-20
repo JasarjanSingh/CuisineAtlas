@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuisine Atlas — Recommendations</title>
+  <!-- Pull in your SPA’s stylesheet -->
+  <link rel="stylesheet" href="http://localhost:3000/assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <!-- GLOBAL HEADER -->
+    <header class="mobile-header">
+      <a href="http://localhost:3000/pages/dashboard.html" class="back-btn">← Back</a>
+      <h1>Recommended Dishes</h1>
+    </header>
+
+    <!-- MAP PANEL -->
+    <div class="map-panel">
+      <div id="map-container">
+        {{ map_html|safe }}
+      </div>
+    </div>
+
+    <!-- RECOMMENDATION LIST -->
+    <main class="recommendations">
+      <ul class="card-list">
+        {% for item in grouped_recs %}
+          {% set dish = item.dish_name_clean_fuzzy %}
+          {% if item.restaurants %}
+            {% for rest in item.restaurants %}
+              {% set anchor_id = "rec_" + dish.replace(' ', '_') %}
+              <li id="{{ anchor_id }}" class="rec-card">
+                <div class="card-info">
+                  <!-- Dish name large -->
+                  <h3 class="dish-title">{{ dish }}</h3>
+                  <!-- Restaurant name smaller -->
+                  <h4 class="restaurant-name">{{ rest.restaurant_name }}</h4>
+                  <!-- Description or fallback -->
+                  <p class="status">
+                    {{ rest.restaurant_description or "Description not available" }}
+                  </p>
+                  <!-- Address & coords -->
+                  <p class="status">
+                    {{ rest.address }}, {{ rest.city }}, {{ rest.state }}
+                  </p>
+                  <p class="eta">
+                    ({{ rest.latitude }}, {{ rest.longitude }})
+                  </p>
+                </div>
+                {% if rest.restaurant_website %}
+                  <a
+                    href="{{ rest.restaurant_website }}"
+                    target="_blank"
+                    class="btn next"
+                    style="align-self:center;"
+                  >
+                    Visit Website
+                  </a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          {% else %}
+            <li class="rec-card">
+              <div class="card-info">
+                <h3 class="dish-title">{{ dish }}</h3>
+                <p class="status" style="color:var(--clr-accent);">
+                  No matching restaurants found for this dish.
+                </p>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </main>
+  </div>
+</body>
+</html>

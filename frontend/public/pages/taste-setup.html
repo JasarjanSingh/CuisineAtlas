@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuisine Atlas — Taste Setup</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../assets/images/user.png" class="avatar" alt="You"/>
+      <!-- give the h1 an ID we can target -->
+      <h1 id="welcome">Hi, Jasmine!</h1>
+      <a href="/pages/dashboard.html" class="menu-btn">☰</a>
+    </header>
+
+    <main class="taste-setup">
+      <h2>Describe your taste</h2>
+      <div class="slider-group">
+        <div class="slider-row">
+          <label for="salty">Salty</label>
+          <input id="salty" type="range" min="0" max="100" value="72" oninput="updateValue('salty')"/>
+          <span class="value" id="salty-value">72</span>
+          <img src="../assets/images/salt.png" class="icon" alt="salt"/>
+        </div>
+        <div class="slider-row">
+          <label for="sweet">Sweet</label>
+          <input id="sweet" type="range" min="0" max="100" value="20" oninput="updateValue('sweet')"/>
+          <span class="value" id="sweet-value">20</span>
+          <img src="../assets/images/cupcake.png" class="icon" alt="sweet"/>
+        </div>
+        <div class="slider-row">
+          <label for="sour">Sour</label>
+          <input id="sour" type="range" min="0" max="100" value="35" oninput="updateValue('sour')"/>
+          <span class="value" id="sour-value">35</span>
+          <img src="../assets/images/lemon.png" class="icon" alt="sour"/>
+        </div>
+        <div class="slider-row">
+          <label for="umami">Umami</label>
+          <input id="umami" type="range" min="0" max="100" value="85" oninput="updateValue('umami')"/>
+          <span class="value" id="umami-value">85</span>
+          <img src="../assets/images/food.png" class="icon" alt="umami"/>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn save">Save</button>
+        <button class="btn next" onclick="location.href='/pages/swipe.html'">Next →</button>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // slider‐value UI helper
+    function updateValue(id) {
+      document.getElementById(`${id}-value`).textContent =
+        document.getElementById(id).value;
+    }
+    window.onload = () => ['salty','sweet','sour','umami'].forEach(updateValue);
+  </script>
+
+  <!-- shared logic (goToMap, initMap, etc) -->
+  <script src="../assets/js/script.js"></script>
+
+  <!-- new: swap in stored name -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const first = localStorage.getItem('firstName');
+      const last  = localStorage.getItem('lastName');
+      if (first || last) {
+        document.getElementById('welcome').textContent =
+          `Hi, ${[first, last].filter(Boolean).join(' ')}!`;
+      }
+    });
+  </script>
+</body>
+</html>

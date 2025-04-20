@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF‑8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cuisine Atlas — Group Taste Sync</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="../assets/images/user.png" class="avatar" alt="You"/>
+      <h1 id="welcome">Hi, Jasmine!</h1>
+      <a href="/pages/dashboard.html" class="menu-btn">☰</a>
+    </header>
+
+    <main class="group-sync">
+      <h2>Group Taste Sync</h2>
+
+      <div class="tabs">
+        <button class="tab active" data-target="contacts">My Contacts</button>
+        <button class="tab"        data-target="profiles">Team Profiles</button>
+      </div>
+
+      <input type="text" class="search" placeholder="Search contacts…"/>
+
+      <div class="btn-row" style="display:flex; justify-content:center; margin:var(--spacing) 0;">
+        <a href="http://localhost:3000/pages/recommendations" class="btn next">
+          Generate Group Recommendations
+        </a>
+      </div>
+
+      <!-- CONTACTS pane -->
+      <div id="contacts" class="contact-list">
+
+        <!-- Contact 1 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot1.png" alt="Taylor Hamilton" class="avatar"/>
+          <div class="contact-info">
+            <h3>Taylor Hamilton</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:60%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:50%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:30%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:75%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+        <!-- Contact 2 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot2.png" alt="Marcus Smart" class="avatar"/>
+          <div class="contact-info">
+            <h3>Marcus Smart</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:72%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:20%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:35%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:85%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+        <!-- Contact 3 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot3.png" alt="Alex Johnson" class="avatar"/>
+          <div class="contact-info">
+            <h3>Alex Johnson</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:45%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:65%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:25%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:50%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+        <!-- Contact 4 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot4.png" alt="Sam Lee" class="avatar"/>
+          <div class="contact-info">
+            <h3>Sam Lee</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:90%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:15%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:40%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:70%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+        <!-- Contact 5 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot5.png" alt="Priya Patel" class="avatar"/>
+          <div class="contact-info">
+            <h3>Priya Patel</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:30%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:80%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:55%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:20%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+        <!-- Contact 6 -->
+        <div class="contact-card">
+          <img src="../assets/images/headshot6.png" alt="Diego Martinez" class="avatar"/>
+          <div class="contact-info">
+            <h3>Diego Martinez</h3>
+            <div class="flavor-row">
+              <span class="flavor-label">Salty</span>
+              <div class="bar-container"><div class="bar-fill" style="width:60%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sweet</span>
+              <div class="bar-container"><div class="bar-fill" style="width:35%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Sour</span>
+              <div class="bar-container"><div class="bar-fill" style="width:45%;"></div></div>
+            </div>
+            <div class="flavor-row">
+              <span class="flavor-label">Spicy</span>
+              <div class="bar-container"><div class="bar-fill" style="width:85%;"></div></div>
+            </div>
+          </div>
+          <button class="add-btn">＋</button>
+        </div>
+
+      </div>
+
+      <!-- TEAM PROFILES pane -->
+      <div id="profiles" class="contact-list" style="display:none;">
+        <p style="color: var(--clr-subtext); font-style: italic;">
+          No one has been added yet.
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Pull name from localStorage
+      const first = localStorage.getItem('firstName');
+      const last  = localStorage.getItem('lastName');
+      if (first || last) {
+        document.getElementById('welcome').textContent =
+          `Hi, ${[first, last].filter(Boolean).join(' ')}!`;
+      }
+    });
+  </script>
+</body>
+</html>
+```

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Cuisine Atlas — Sign Up</title>
+  <link rel="stylesheet" href="../assets/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/pages/index.html" class="menu-btn">← Back</a>
+      <h1>Sign Up</h1>
+    </header>
+    <div class="login-card">
+      <form id="signup-form">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" placeholder="First Name" required/>
+
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" placeholder="Last Name" required/>
+
+        <label for="new-email">Email</label>
+        <input id="new-email" type="email" placeholder="you@example.com" required/>
+
+        <label for="new-password">Password</label>
+        <input id="new-password" type="password" placeholder="••••••••" required/>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" type="password" placeholder="••••••••" required/>
+
+        <button type="submit" class="btn save">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const first = document.getElementById('first-name').value.trim();
+      const last  = document.getElementById('last-name').value.trim();
+
+      // store in localStorage
+      localStorage.setItem('firstName', first);
+      localStorage.setItem('lastName', last);
+
+      // redirect to dashboard
+      window.location.href = '/pages/dashboard.html';
+    });
+  </script>
+</body>
+</html>
