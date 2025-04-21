@@ -634,3 +634,44 @@ header nav a {
   background: var(--clr-accent);
   color: #fff;
 }
+
+/* ─── ZIP + RADIUS form ─────────────────────────────────────────────────── */
+.location-form {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+.location-form .search {
+  /* reuse your existing “search” style for rounded inputs */
+  flex: 1;
+}
+
+.location-form input[name="radius"] {
+  max-width: 6rem;
+}
+
+.location-form button {
+  /* ensures your “Apply” pill matches the other .btn.next */
+  flex-shrink: 0;
+}
+
+/* Rectangle Like/Dislike buttons */
+.btn.like,
+.btn.dislike {
+  display: inline-block;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.5rem !important;
+  font-size: 1rem !important;
+  background: var(--clr-card);
+  box-shadow: 0 2px 8px var(--clr-shadow);
+  border: none;
+  cursor: pointer;
+}
+
+/* Color overrides */
+.btn.like    { color: var(--clr-primary); }
+.btn.dislike { color: var(--clr-accent); }
